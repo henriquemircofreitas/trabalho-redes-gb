@@ -132,6 +132,25 @@ def notes(slide, value: str) -> None:
     slide.notes_slide.notes_text_frame.text = value.strip()
 
 
+def load_simple_script_notes() -> list[str]:
+    """Extrai as falas citadas do roteiro simples para as notas do PowerPoint."""
+    source = (ROOT / "docs" / "roteiro_fala_simples.md").read_text(encoding="utf-8")
+    result: list[str] = []
+    for number in range(1, 12):
+        marker = f"## Slide {number} —"
+        start = source.index(marker)
+        next_start = source.find(f"## Slide {number + 1} —", start) if number < 11 else source.index("## Cola rápida", start)
+        section = source[start:next_start]
+        quoted: list[str] = []
+        for line in section.splitlines():
+            if line == ">":
+                quoted.append("")
+            elif line.startswith("> "):
+                quoted.append(line[2:])
+        result.append("\n".join(quoted))
+    return result
+
+
 def add_picture_contain(slide, path: Path, x: float, y: float, w: float, h: float) -> None:
     with Image.open(path) as image:
         iw, ih = image.size
@@ -226,7 +245,7 @@ def slide_1(prs):
 
 
 def slide_2(prs):
-    slide = prs.slides.add_slide(prs.slide_layouts[6]); base(slide, 2, "Bernardo", "45 s"); title(slide, "Do texto ao bit recuperado", "Arquitetura")
+    slide = prs.slides.add_slide(prs.slide_layouts[6]); base(slide, 2, "Bernardo", "55 s"); title(slide, "Do texto ao bit recuperado", "Arquitetura")
     stages = [
         ("ASCII", "12.533 caracteres"), ("BITS", "100.264"), ("LINHA", "3 códigos"),
         ("SÍMBOLOS", "3 modulações"), ("CANAL", "2 cenários"), ("RECEPTOR", "decisão dura"),
@@ -255,7 +274,7 @@ def slide_2(prs):
 def slide_3(prs):
     from sim import line_codes
     import numpy as np
-    slide = prs.slides.add_slide(prs.slide_layouts[6]); base(slide, 3, "Bernardo", "55 s"); title(slide, "Código de linha não corrige erros", "Conceito-chave")
+    slide = prs.slides.add_slide(prs.slide_layouts[6]); base(slide, 3, "Bernardo", "65 s"); title(slide, "Código de linha não corrige erros", "Conceito-chave")
     bits = np.array([0, 1, 0, 1], dtype=np.uint8)
     rows = [("NRZ", "1 chip/bit", "nrz", CYAN), ("Manchester", "2 chips/bit · 0→01, 1→10", "manchester", TEAL), ("Manchester diferencial", "2 chips/bit · transição central", "diff_manchester", ORANGE)]
     for idx, (label, sub, code, color) in enumerate(rows):
@@ -295,7 +314,7 @@ def constellation_card(slide, x, title_text, points, eta, color):
 
 
 def slide_4(prs):
-    slide = prs.slides.add_slide(prs.slide_layouts[6]); base(slide, 4, "Bernardo", "55 s"); title(slide, "Três modulações, três compromissos", "Modulação")
+    slide = prs.slides.add_slide(prs.slide_layouts[6]); base(slide, 4, "Bernardo", "60 s"); title(slide, "Três modulações, três compromissos", "Modulação")
     constellation_card(slide, 0.55, "BPSK", [(-0.72, 0), (0.72, 0)], "1 bit/símbolo", BLUE)
     constellation_card(slide, 4.76, "QPSK", [(-0.62, -0.62), (-0.62, 0.62), (0.62, -0.62), (0.62, 0.62)], "2 bits/símbolo", TEAL)
     pts = [(i * 0.42, q * 0.42) for i in (-1.5, -0.5, 0.5, 1.5) for q in (-1.5, -0.5, 0.5, 1.5)]
@@ -310,7 +329,7 @@ def slide_4(prs):
 
 
 def slide_5(prs):
-    slide = prs.slides.add_slide(prs.slide_layouts[6]); base(slide, 5, "Henrique", "50 s"); title(slide, "Dois canais, a mesma referência de energia", "Canal")
+    slide = prs.slides.add_slide(prs.slide_layouts[6]); base(slide, 5, "Bernardo", "60 s"); title(slide, "Dois canais, a mesma referência de energia", "Canal")
     panel(slide, 0.72, 1.6, 5.75, 3.35, color=NAVY_2, line=CYAN)
     text(slide, "AWGN", 1.05, 1.9, 5.1, 0.42, size=25, color=CYAN, bold=True, align=PP_ALIGN.CENTER)
     text(slide, "Ruído gaussiano independente\nem todos os símbolos", 1.15, 2.55, 4.9, 0.82, size=20, color=WHITE, align=PP_ALIGN.CENTER)
@@ -330,7 +349,7 @@ def slide_5(prs):
 
 
 def slide_6(prs):
-    slide = prs.slides.add_slide(prs.slide_layouts[6]); base(slide, 6, "Henrique", "40 s", light=True); title(slide, "Experimento controlado e reproduzível", "Metodologia", light=True)
+    slide = prs.slides.add_slide(prs.slide_layouts[6]); base(slide, 6, "Henrique", "45 s", light=True); title(slide, "Experimento controlado e reproduzível", "Metodologia", light=True)
     add_stat(slide, "100.264", "bits por transmissão", 0.72, 1.72, 2.78, TEAL, True)
     add_stat(slide, "11", "valores de Eb/N0", 3.76, 1.72, 2.78, CYAN, True)
     add_stat(slide, "5", "sementes por ponto", 6.8, 1.72, 2.78, ORANGE, True)
@@ -394,7 +413,7 @@ def slide_8(prs):
 
 
 def slide_9(prs):
-    slide = prs.slides.add_slide(prs.slide_layouts[6]); base(slide, 9, "Ambos", "60 s", light=True); title(slide, "Eficiência espectral não vem de graça", "Compromisso", light=True)
+    slide = prs.slides.add_slide(prs.slide_layouts[6]); base(slide, 9, "Henrique", "55 s", light=True); title(slide, "Eficiência espectral não vem de graça", "Compromisso", light=True)
     rows = [
         ("NRZ", "BPSK", "1,0", "6,69 dB", "Robustez"),
         ("NRZ", "QPSK", "2,0", "6,73 dB", "Melhor equilíbrio"),
@@ -429,7 +448,7 @@ def slide_9(prs):
 
 
 def slide_10(prs):
-    slide = prs.slides.add_slide(prs.slide_layouts[6]); base(slide, 10, "Bernardo", "55 s", light=True); title(slide, "Consistência: o enlace funciona sem ruído", "Validação", light=True)
+    slide = prs.slides.add_slide(prs.slide_layouts[6]); base(slide, 10, "Henrique", "50 s", light=True); title(slide, "Consistência: o enlace funciona sem ruído", "Validação", light=True)
     panel(slide, 0.55, 1.38, 8.65, 5.34, color="FFFFFF", line="D7E1E8")
     add_picture_contain(slide, ROOT / "results/plots/constelacoes_16qam.png", 0.7, 1.55, 8.35, 5.0)
     panel(slide, 9.52, 1.58, 3.1, 1.38, color="E8FAEE", line="B9E6C7")
@@ -448,7 +467,7 @@ def slide_10(prs):
 
 
 def slide_11(prs):
-    slide = prs.slides.add_slide(prs.slide_layouts[6]); base(slide, 11, "Ambos", "45 s"); title(slide, "O canal define a melhor escolha", "Conclusões")
+    slide = prs.slides.add_slide(prs.slide_layouts[6]); base(slide, 11, "Ambos", "50 s"); title(slide, "O canal define a melhor escolha", "Conclusões")
     cards = [
         ("01", "AWGN", "BPSK e QPSK seguem a teoria; potência reduz a BER.", CYAN),
         ("02", "Rajadas", "Aparece um piso: mais potência não elimina erros concentrados.", RED),
@@ -483,6 +502,8 @@ def main() -> None:
     prs.core_properties.comments = "Apresentação gerada a partir dos resultados versionados no repositório."
     for builder in (slide_1, slide_2, slide_3, slide_4, slide_5, slide_6, slide_7, slide_8, slide_9, slide_10, slide_11):
         builder(prs)
+    for slide, speaker_notes in zip(prs.slides, load_simple_script_notes(), strict=True):
+        notes(slide, speaker_notes)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     prs.save(OUT)
     print(f"Gerado: {OUT} ({len(prs.slides)} slides)")

@@ -140,6 +140,7 @@ Materiais prontos para a apresentação:
 
 - [`docs/apresentacao_redes_gb.pptx`](docs/apresentacao_redes_gb.pptx): PowerPoint com 11 slides e notas de fala.
 - [`docs/apresentacao_redes_gb.pdf`](docs/apresentacao_redes_gb.pdf): versão de segurança para apresentação.
+- [`docs/roteiro_fala_simples.md`](docs/roteiro_fala_simples.md): fala completa em linguagem simples, dividida em 5 minutos para cada integrante.
 - [`docs/roteiro_apresentacao.md`](docs/roteiro_apresentacao.md): divisão de tempo e perguntas prováveis.
 - [`docs/roteiro_video.md`](docs/roteiro_video.md): roteiro do vídeo de até cinco minutos.
 
