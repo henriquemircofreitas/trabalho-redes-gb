@@ -390,3 +390,23 @@ A public `constellation(mod)` returns the ideal points, so the constellation sca
 **Rejected:**
 - *Only the noiseless end-to-end test* — when it fails, nobody knows which of 5 modules broke.
 - *GitHub Actions CI on every push* — cheap (~15 lines of YAML) and would help repo quality, but not chosen for now; easy to add later if integration pain appears.
+
+## D25 — A energia usada no Eb/N0 é medida no fluxo efetivamente transmitido
+
+**Decisão:** apesar de as constelações terem energia média unitária sob símbolos equiprováveis, o
+canal calcula `Es = mean(abs(symbols)**2)` em cada transmissão. O ruído é então dimensionado por
+`N0 = Es / (η × 10^(Eb/N0/10))`.
+
+**Por quê:** os bits de um texto ASCII não são uniformes (o bit mais significativo é sempre zero).
+Na 16-QAM isso faz alguns pontos aparecerem mais que outros, alterando ligeiramente a energia média
+real. Medir `Es` evita que essa característica da mensagem favoreça ou prejudique uma combinação e
+mantém a comparação de Eb/N0 justa. A decisão também explica por que alguns pontos aparecem pouco
+nos diagramas de constelação.
+
+## D26 — Os bits incorretos são identificados, não apenas contados
+
+**Decisão:** `LinkResult.error_indices` guarda os índices de todos os bits da mensagem recuperados
+incorretamente. `bit_errors` continua sendo a contagem e `ber = bit_errors / n_bits`.
+
+**Por quê:** atende literalmente ao requisito de identificar os bits incorretos e permite mostrar,
+no vídeo e no teste de consistência, onde as rajadas concentram erros.

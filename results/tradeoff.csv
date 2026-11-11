@@ -1,0 +1,10 @@
+line_code,modulation,spectral_efficiency_bits_s_hz,required_ebn0_awgn_db_for_ber_1e-3,required_ebn0_burst_db_for_ber_1e-3,ber_awgn_at_10_db,ber_burst_at_10_db,best_when
+nrz,bpsk,1.0,6.6928750139442394,8.643814935228995,3.989467805e-06,0.0008517513763669999,canal com pouca SNR; prioriza robustez; máxima eficiência
+nrz,qpsk,2.0,6.728835547869308,10.9042741206538,5.984201707497999e-06,0.0010173142902746,equilíbrio entre robustez e largura de banda; máxima eficiência
+nrz,16qam,4.0,10.43277721770312,,0.001671587010294,0.003105800686188,SNR alta e largura de banda escassa; máxima eficiência
+manchester,bpsk,0.5,9.68934153908157,,0.000718104204899,0.00244354903056,canal com pouca SNR; prioriza robustez; sincronismo e detecção de violações
+manchester,qpsk,1.0,9.746509114071829,,0.0007699672863639999,0.002262028245432,equilíbrio entre robustez e largura de banda; sincronismo e detecção de violações
+manchester,16qam,2.0,12.82229277767238,,0.01022500598422,0.01188462459106,SNR alta e largura de banda escassa; sincronismo e detecção de violações
+diff_manchester,bpsk,0.5,10.27841519977657,,0.0016137397271220003,0.004637756323306,canal com pouca SNR; prioriza robustez; sincronismo e tolerância a inversão de polaridade após referência
+diff_manchester,qpsk,1.0,10.2540854608861,,0.0015140030319960001,0.004061278225484,equilíbrio entre robustez e largura de banda; sincronismo e tolerância a inversão de polaridade após referência
+diff_manchester,16qam,2.0,14.094395278074973,,0.03347761908562,0.03696241921328,SNR alta e largura de banda escassa; sincronismo e tolerância a inversão de polaridade após referência

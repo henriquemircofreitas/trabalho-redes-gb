@@ -27,13 +27,16 @@ constellation(mod: str) -> np.ndarray[complex] # ideal points; index i = label i
 transmit(symbols, ebn0_db, bits_per_symbol, scenario, rng) -> np.ndarray[complex]
 #   scenario: "awgn" | "burst"
 #   bits_per_symbol = message bits per symbol = η (D10)
-#   Es = 1 ⇒ Eb = 1/bits_per_symbol, N0 = Eb / 10^(ebn0_db/10); complex noise, N0/2 per dimension
+#   Es = mean(abs(symbols)**2) ⇒ Eb = Es/bits_per_symbol,
+#   N0 = Eb / 10^(ebn0_db/10); complex noise, N0/2 per dimension.
+#   Measuring Es avoids bias from the non-uniform ASCII symbol distribution.
 #   burst constants: P_BAD = 0.01, MEAN_BURST = 20, BAD_EBN0_DB = 0 (D14)
 #   ebn0_db = math.inf ⇒ N0 = 0: the AWGN channel adds no noise (noiseless test, D24)
 
 # link.py  (P1, calls P2's channel)
 run_link(text, line_code, modulation, scenario, ebn0_db, seed) -> LinkResult
-#   LinkResult: ber, bit_errors, n_bits, violations, recovered_text, rx_symbols
+#   LinkResult: ber, bit_errors, n_bits, error_indices, violations,
+#               spectral_efficiency, recovered_text, rx_symbols
 ```
 
 ## `results/raw.csv` — one row per run (D15)
