@@ -1,5 +1,7 @@
 # Simulador de transmissão digital — Redes de Computadores (GB)
 
+[![Testes](https://github.com/henriquemircofreitas/trabalho-redes-gb/actions/workflows/tests.yml/badge.svg)](https://github.com/henriquemircofreitas/trabalho-redes-gb/actions/workflows/tests.yml)
+
 Simulador ponta a ponta e reproduzível de um enlace digital:
 
 `ASCII → bits → código de linha → modulação → canal → demodulação → decodificação → BER`
@@ -92,6 +94,14 @@ dimensionar o ruído, evitando viés porque os bits do texto ASCII não são equ
   exigiu 10,43 dB, trocando potência por quatro vezes a eficiência espectral.
 - Manchester custa metade da eficiência espectral e aproximadamente 3 dB no receptor de decisão
   abrupta usado aqui. Manchester diferencial também propaga determinados erros entre bits.
+
+### Curvas de BER para NRZ
+
+![Curvas BER por Eb/N0 para NRZ em AWGN e rajadas](results/plots/ber_nrz.png)
+
+### Constelações 16-QAM recebidas
+
+![Constelações 16-QAM em 0, 10 e 20 dB](results/plots/constelacoes_16qam.png)
 
 Resultados e análise completa:
 
