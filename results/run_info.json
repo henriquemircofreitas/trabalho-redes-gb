@@ -1,5 +1,5 @@
 {
-  "created_at_utc": "2026-11-11T22:55:14.003320+00:00",
+  "created_at_utc": "2026-11-11T23:13:14.938173+00:00",
   "ebn0_db_values": [
     0,
     2,
@@ -42,8 +42,8 @@
     "mean_burst_symbols": 20.0,
     "bad_ebn0_db": 0.0
   },
-  "git_commit": "ccd5a5f545f6b4019f54fd4d52176df2fc0545bd",
-  "git_dirty": true,
+  "git_commit": "ff567150799d8bc36e8446fe9e84fea0e371d3d7",
+  "git_dirty": false,
   "implementation_sha256": "fde3581969b1ab90bccf8c7efc4cbb4fd5d1cccaa0e59d4e82902cd8e0e77051",
   "raw_rows": 990
 }
