@@ -136,8 +136,15 @@ uma parte completa do sistema.
 
 ## Vídeo e apresentação
 
-O roteiro de vídeo de até cinco minutos está em `docs/roteiro_video.md`. O roteiro da apresentação
-de dez minutos está em `docs/roteiro_apresentacao.md`.
+Materiais prontos para a apresentação:
+
+- [`docs/apresentacao_redes_gb.pptx`](docs/apresentacao_redes_gb.pptx): PowerPoint com 11 slides e notas de fala.
+- [`docs/apresentacao_redes_gb.pdf`](docs/apresentacao_redes_gb.pdf): versão de segurança para apresentação.
+- [`docs/roteiro_apresentacao.md`](docs/roteiro_apresentacao.md): divisão de tempo e perguntas prováveis.
+- [`docs/roteiro_video.md`](docs/roteiro_video.md): roteiro do vídeo de até cinco minutos.
+
+Os slides podem ser recriados com `uv run python scripts/make_slides.py`; as figuras são lidas
+diretamente de `results/plots/`.
 
 O link do vídeo será incluído aqui depois da gravação final, com a participação dos dois
 integrantes e duração máxima de cinco minutos.
