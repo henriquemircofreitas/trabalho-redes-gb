@@ -19,6 +19,23 @@ Se a prévia do GitHub não carregar, use o download direto ou a [versão em tex
 
 [Apresentação em PDF](docs/apresentacao_redes_gb.pdf) · [Enunciado do trabalho](TrabalhoII_2026_02_LS.pdf)
 
+## Vídeo de demonstração
+
+**[Assistir ao vídeo (4:36)](video/video_final.mp4)** · [Baixar o MP4 diretamente](https://github.com/henriquemircofreitas/trabalho-redes-gb/raw/main/video/video_final.mp4)
+
+O vídeo mostra o notebook [`notebooks/demo_video.ipynb`](notebooks/demo_video.ipynb) executando ao vivo:
+a cadeia de transmissão, o demo de consistência e a reexecução dos 990 ensaios (cerca de 45 s),
+conferidos contra `results/raw.csv`, seguidos das curvas, das constelações e do compromisso entre BER
+e eficiência espectral. O notebook apenas importa `src/sim/` e `experiments/` e exibe `results/`.
+
+```bash
+# Abrir o notebook
+uv run --group notebook jupyter lab notebooks/demo_video.ipynb
+
+# Recriar e executar o notebook (os testes verificam que ele está sincronizado com o gerador)
+uv run --group notebook python scripts/make_notebook.py
+```
+
 ## Instalação
 
 Requer [uv](https://docs.astral.sh/uv/) e não depende de serviços externos durante os experimentos.
