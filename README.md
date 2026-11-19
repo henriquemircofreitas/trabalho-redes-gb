@@ -10,6 +10,15 @@ O projeto compara três códigos de linha (NRZ, Manchester e Manchester diferenc
 modulações (BPSK, QPSK e 16-QAM) e dois cenários de canal (AWGN e AWGN com ruído em rajadas).
 Foram executados 990 ensaios, cada um com 100.264 bits.
 
+## Relatório e apresentação
+
+**[Abrir o relatório em PDF](docs/relatorio_redes_gb.pdf)** · [Baixar o PDF diretamente](https://raw.githubusercontent.com/henriquemircofreitas/trabalho-redes-gb/main/docs/relatorio_redes_gb.pdf)
+
+O relatório reúne metodologia, gráficos, resultados, limitações e instruções de reprodução.
+Se a prévia do GitHub não carregar, use o download direto ou a [versão em texto](docs/relatorio.md).
+
+[Apresentação em PDF](docs/apresentacao_redes_gb.pdf) · [Enunciado do trabalho](TrabalhoII_2026_02_LS.pdf)
+
 ## Instalação
 
 Requer [uv](https://docs.astral.sh/uv/) e não depende de serviços externos durante os experimentos.
@@ -52,8 +61,7 @@ do Git, um hash da implementação, parâmetros, sementes e quantidade de bits.
 | Experimentos | `experiments/` | Varredura, gráficos, tabela e demonstração |
 | Testes | `tests/` | Testes unitários, estatísticos e ponta a ponta |
 
-O contrato detalhado está em `docs/interface.md`; justificativas de projeto estão em
-`docs/decisions.md`.
+A metodologia e as justificativas estão no [relatório técnico](docs/relatorio.md).
 
 ## Código de linha não é correção de erros
 
@@ -133,22 +141,6 @@ uma parte completa do sistema.
 | Bernardo Dauber | Fonte, códigos de linha, modulações, enlace, testes e demonstração |
 | Henrique Freitas | Canais, execução experimental, gráficos, análise e tabela |
 | Ambos | README, revisão dos resultados, vídeo e apresentação |
-
-## Vídeo e apresentação
-
-Materiais prontos para a apresentação:
-
-- [`docs/apresentacao_redes_gb.pptx`](docs/apresentacao_redes_gb.pptx): PowerPoint com 11 slides e notas de fala.
-- [`docs/apresentacao_redes_gb.pdf`](docs/apresentacao_redes_gb.pdf): versão de segurança para apresentação.
-- [`docs/roteiro_fala_simples.md`](docs/roteiro_fala_simples.md): fala completa em linguagem simples, dividida em 5 minutos para cada integrante.
-- [`docs/roteiro_apresentacao.md`](docs/roteiro_apresentacao.md): divisão de tempo e perguntas prováveis.
-- [`docs/roteiro_video.md`](docs/roteiro_video.md): roteiro do vídeo de até cinco minutos.
-
-Os slides podem ser recriados com `uv run python scripts/make_slides.py`; as figuras são lidas
-diretamente de `results/plots/`.
-
-O link do vídeo será incluído aqui depois da gravação final, com a participação dos dois
-integrantes e duração máxima de cinco minutos.
 
 ## Limitações
 
