@@ -12,27 +12,24 @@ Foram executados 990 ensaios, cada um com 100.264 bits.
 
 ## Relatório e apresentação
 
-**[Abrir o relatório em PDF](docs/relatorio_redes_gb.pdf)** · [Baixar o PDF diretamente](https://raw.githubusercontent.com/henriquemircofreitas/trabalho-redes-gb/main/docs/relatorio_redes_gb.pdf)
+**[Relatório em PDF](docs/relatorio_redes_gb.pdf)** · [Versão em texto](docs/relatorio.md)
 
 O relatório reúne metodologia, gráficos, resultados, limitações e instruções de reprodução.
-Se a prévia do GitHub não carregar, use o download direto ou a [versão em texto](docs/relatorio.md).
-
-[Apresentação em PDF — 12 slides / 5 minutos](docs/apresentacao_redes_gb.pdf) · [Enunciado do trabalho](TrabalhoII_2026_02_LS.pdf)
+[Apresentação em PDF — 12 slides](docs/apresentacao_redes_gb.pdf) · [Enunciado do trabalho](TrabalhoII_2026_02_LS.pdf)
 
 ## Vídeo de demonstração
 
 **[Assistir ao vídeo (4:36)](video/video_final.mp4)** · [Baixar o MP4 diretamente](https://github.com/henriquemircofreitas/trabalho-redes-gb/raw/main/video/video_final.mp4)
 
-O vídeo mostra o notebook [`notebooks/demo_video.ipynb`](notebooks/demo_video.ipynb) executando ao vivo:
-a cadeia de transmissão, o demo de consistência e a reexecução dos 990 ensaios (cerca de 45 s),
-conferidos contra `results/raw.csv`, seguidos das curvas, das constelações e do compromisso entre BER
-e eficiência espectral. O notebook apenas importa `src/sim/` e `experiments/` e exibe `results/`.
+O vídeo demonstra a cadeia de transmissão, a validação funcional e a reprodução dos 990 ensaios,
+além das curvas BER, constelações e tabela de eficiência espectral. A demonstração pode ser
+reproduzida com o [notebook](notebooks/demo_video.ipynb):
 
 ```bash
 # Abrir o notebook
 uv run --group notebook jupyter lab notebooks/demo_video.ipynb
 
-# Recriar e executar o notebook (os testes verificam que ele está sincronizado com o gerador)
+# Recriar e executar o notebook
 uv run --group notebook python scripts/make_notebook.py
 ```
 

@@ -1,4 +1,4 @@
-"""One-off: build data/source.txt (D6, D17).
+"""Build the ASCII message in data/source.txt from a public-domain text.
 
 Downloads Dom Casmurro (Machado de Assis, public domain) from Project Gutenberg,
 keeps the first chapters up to >= 12,500 characters (>= 100,000 message bits)

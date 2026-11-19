@@ -1,2 +1,2 @@
-# Keep LF on every OS: a CRLF checkout would change the transmitted bits (D17).
+# Keep LF on every OS: a CRLF checkout would change the transmitted bits.
 data/source.txt text eol=lf
