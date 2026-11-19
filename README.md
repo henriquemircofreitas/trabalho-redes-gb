@@ -17,7 +17,7 @@ Foram executados 990 ensaios, cada um com 100.264 bits.
 O relatório reúne metodologia, gráficos, resultados, limitações e instruções de reprodução.
 Se a prévia do GitHub não carregar, use o download direto ou a [versão em texto](docs/relatorio.md).
 
-[Apresentação em PDF — 15 slides / 5 minutos](docs/apresentacao_redes_gb.pdf) · [Enunciado do trabalho](TrabalhoII_2026_02_LS.pdf)
+[Apresentação em PDF — 12 slides / 5 minutos](docs/apresentacao_redes_gb.pdf) · [Enunciado do trabalho](TrabalhoII_2026_02_LS.pdf)
 
 ## Vídeo de demonstração
 
