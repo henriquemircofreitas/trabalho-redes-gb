@@ -19,7 +19,7 @@ O relatório reúne metodologia, gráficos, resultados, limitações e instruç�
 
 ## Vídeo de demonstração
 
-**[Assistir ao vídeo (4:36)](video/video_final.mp4)** · [Baixar o MP4 diretamente](https://github.com/henriquemircofreitas/trabalho-redes-gb/raw/main/video/video_final.mp4)
+**[Assistir ao vídeo no YouTube](https://youtu.be/Ch6FSm3H7ms)**
 
 O vídeo demonstra a cadeia de transmissão, a validação funcional e a reprodução dos 990 ensaios,
 além das curvas BER, constelações e tabela de eficiência espectral. A demonstração pode ser
